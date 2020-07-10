@@ -9,18 +9,20 @@ keycloak.onAuthSuccess = function () {
   keycloak
     .loadUserProfile()
     .success(function (profile) {
-      let isExhibitor = profile.attributes.isExhibitor[0];
       let firstName = profile.firstName;
       let lastName = profile.lastName;
-      let h1 = document.getElementsByTagName("H1");
-      h1[0].innerHTML = "Bonjour " + firstName + " " + lastName;
-      if (isExhibitor === "true") {
-        const medal = `<div class="quiz-medal"><div class="quiz-medal__circle quiz-medal__circle--gold"></div>
+      if (profile.attributes.isExhibitor[0].length > 0) {
+        let isExhibitor = profile.attributes.isExhibitor[0];
+        if (isExhibitor === "true") {
+          const medal = `<div class="quiz-medal"><div class="quiz-medal__circle quiz-medal__circle--gold"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--left"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--right"></div>
         </div>`;
-        h1[0].innerHTML += medal;
+          h1[0].innerHTML += medal;
+        }
       }
+      let h1 = document.getElementsByTagName("H1");
+      h1[0].innerHTML = "Bonjour " + firstName + " " + lastName;
     })
     .catch(function (e) {
       console.log(e);
@@ -39,6 +41,6 @@ function login() {
 }
 
 function signup() {
-  debugger
+  debugger;
   keycloak.register();
 }
