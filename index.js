@@ -11,18 +11,19 @@ keycloak.onAuthSuccess = function () {
     .success(function (profile) {
       let firstName = profile.firstName;
       let lastName = profile.lastName;
-      let h1 = document.getElementsByTagName("H1");
+      let h1 = document.getElementsByTagName("H1")[0];
+      h1.innerHTML = "Bonjour " + firstName + " " + lastName;
       if (profile.attributes.isExhibitor[0].length > 0) {
         let isExhibitor = profile.attributes.isExhibitor[0];
+        debugger
         if (isExhibitor === "true") {
           const medal = `<div class="quiz-medal"><div class="quiz-medal__circle quiz-medal__circle--gold"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--left"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--right"></div>
         </div>`;
-          h1[0].innerHTML += medal;
+          h1.innerHTML += medal;
         }
       }
-      h1[0].innerHTML = "Bonjour " + firstName + " " + lastName;
     })
     .catch(function (e) {
       console.log(e);
