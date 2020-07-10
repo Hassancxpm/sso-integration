@@ -15,7 +15,6 @@ keycloak.onAuthSuccess = function () {
       h1.innerHTML = "Bonjour " + firstName + " " + lastName;
       if (profile.attributes.isExhibitor[0].length > 0) {
         let isExhibitor = profile.attributes.isExhibitor[0];
-        debugger
         if (isExhibitor === "true") {
           const medal = `<div class="quiz-medal"><div class="quiz-medal__circle quiz-medal__circle--gold"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--left"></div>
