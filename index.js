@@ -11,6 +11,7 @@ keycloak.onAuthSuccess = function () {
     .success(function (profile) {
       let firstName = profile.firstName;
       let lastName = profile.lastName;
+      let h1 = document.getElementsByTagName("H1");
       if (profile.attributes.isExhibitor[0].length > 0) {
         let isExhibitor = profile.attributes.isExhibitor[0];
         if (isExhibitor === "true") {
@@ -21,7 +22,6 @@ keycloak.onAuthSuccess = function () {
           h1[0].innerHTML += medal;
         }
       }
-      let h1 = document.getElementsByTagName("H1");
       h1[0].innerHTML = "Bonjour " + firstName + " " + lastName;
     })
     .catch(function (e) {
