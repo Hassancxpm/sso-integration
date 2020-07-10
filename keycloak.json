@@ -1,0 +1,8 @@
+{
+  "realm": "myrealm",
+  "auth-server-url": "https://sso.comexposium.fr/auth",
+  "ssl-required": "none",
+  "resource": "demo",
+  "public-client": true,
+  "confidential-port": 0
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POC SSO CXPM</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/keycloak-js@10.0.2/dist/keycloak.min.js"></script>
+</head>
+
+<body id="body">
+    <div id="container">
+        <h1>Connectez-vous ou créez un compte</h1>
+        <div class="buttons">
+            <button class="btn-slide-line" id="loginButton" style="display: block;" onclick="login()">Sign in</button>
+            <button class="btn-slide-line" id="signButton" style="display: block;" onclick="signup()">Sign up</button>
+            <button class="btn-slide-line" id="logoutButton" style="display: none;" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <script src="/index.js"></script>
+</body>
+
+</html>
