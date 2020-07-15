@@ -7,21 +7,23 @@ keycloak.init({
 
 keycloak.onAuthSuccess = function () {
   keycloak
-    .loadUserProfile()
+    .loadUserInfo()
     .success(function (profile) {
       let firstName = profile.firstName;
       let lastName = profile.lastName;
       let h1 = document.getElementsByTagName("H1")[0];
       h1.innerHTML = "Bonjour " + firstName + " " + lastName;
-      if (profile.attributes.isExhibitor[0].length > 0) {
-        let isExhibitor = profile.attributes.isExhibitor[0];
-        if (isExhibitor === "true") {
+      if (profile.isExhibitor.length > 0) {
+        let isExhibitor = profile.isExhibitor;
+        if (isExhibitor === true) {
           const medal = `<div class="quiz-medal"><div class="quiz-medal__circle quiz-medal__circle--gold"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--left"></div>
           <div class="quiz-medal__ribbon quiz-medal__ribbon--right"></div>
         </div>`;
           h1.innerHTML += medal;
         }
+      } else {
+        console.log("Not exhibitor")
       }
     })
     .catch(function (e) {
