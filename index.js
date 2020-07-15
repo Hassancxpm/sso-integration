@@ -9,8 +9,8 @@ keycloak.onAuthSuccess = function () {
   keycloak
     .loadUserInfo()
     .success(function (profile) {
-      let firstName = profile.firstName;
-      let lastName = profile.lastName;
+      let firstName = profile.given_name;
+      let lastName = profile.family_name;
       let h1 = document.getElementsByTagName("H1")[0];
       h1.innerHTML = "Bonjour " + firstName + " " + lastName;
       if (profile.isExhibitor.length > 0) {
