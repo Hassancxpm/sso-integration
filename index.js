@@ -22,8 +22,6 @@ keycloak.onAuthSuccess = function () {
         </div>`;
           h1.innerHTML += medal;
         }
-      } else {
-        console.log("Not exhibitor");
       }
     })
     .catch(function (e) {
