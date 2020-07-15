@@ -8,7 +8,7 @@ keycloak.init({
 keycloak.onAuthSuccess = function () {
   keycloak
     .loadUserInfo()
-    .success(function (profile) {
+    .then(function (profile) {
       let firstName = profile.given_name;
       let lastName = profile.family_name;
       let h1 = document.getElementsByTagName("H1")[0];
