@@ -13,7 +13,7 @@ keycloak.onAuthSuccess = function () {
       let lastName = profile.family_name;
       let h1 = document.getElementsByTagName("H1")[0];
       h1.innerHTML = "Bonjour " + firstName + " " + lastName;
-      if (profile.isExhibitor.length > 0) {
+      if (profile["isExhibitor"] !== "undefined") {
         let isExhibitor = profile.isExhibitor;
         if (isExhibitor === true) {
           const medal = `<div class="quiz-medal"><div class="quiz-medal__circle quiz-medal__circle--gold"></div>
@@ -23,7 +23,7 @@ keycloak.onAuthSuccess = function () {
           h1.innerHTML += medal;
         }
       } else {
-        console.log("Not exhibitor")
+        console.log("Not exhibitor");
       }
     })
     .catch(function (e) {
